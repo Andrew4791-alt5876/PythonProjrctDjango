@@ -1,10 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная</title>
 
+    <!-- Bootstrap CSS (локально) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons (CDN) -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        html, body { height: 100%; margin: 0; }
+
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-bottom { margin-top: auto; }
+
+        /* Логотип «B» с хвостиком как у Bootstrap */
+        .logo-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-badge::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: -3px;
+            width: 6px;
+            height: 6px;
+            background: inherit;
+            border-radius: 0 0 0 6px;
+            transform: skewX(-15deg);
+        }
+    </style>
+</head>
+<body class="d-flex">
+
+    <!-- ЛЕВЫЙ САЙДБАР -->
+    <aside class="sidebar bg-dark text-white d-flex flex-column p-3 min-vh-100">
+
+        <!-- Логотип -->
+        <h5 class="mb-4 d-flex align-items-center">
+            <span class="logo-badge bg-light text-dark fw-bold me-2">B</span>
+            Меню
+        </h5>
+
+        <!-- Навигация -->
+        <ul class="nav nav-pills flex-column mb-3" id="mainMenu">
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link active bg-primary text-white">
+                    <i class="bi bi-house me-2"></i>Главная
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-folder me-2"></i>Категории
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>Заказы
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-envelope me-2"></i>Контакты
+                </a>
+            </li>
+        </ul>
+
+        <!-- Низ сайдбара -->
+        <div class="sidebar-bottom border-top border-secondary pt-3">
+            <a href="#" class="d-block text-white-50 text-decoration-none mb-2 px-2">Профиль</a>
+            <a href="#" class="d-block text-white-50 text-decoration-none mb-3 px-2">Выход</a>
+
+            <div class="dropdown">
+                <a href="#"
+                   class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                   id="userDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <span class="badge bg-secondary rounded-circle me-2"
+                          style="width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+                    Пользователь
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark shadow"
+                    aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Профиль</a></li>
+                    <li><a class="dropdown-item" href="#">Настройки</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="flex-grow-1 p-4">
+        <h1 class="text-center mt-4">Главная</h1>
+        <p class="text-center text-muted mb-5">
+            Вы находитесь на сайте, предназначенном для продажи товаров.
+        </p>
+
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-12 col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-header">Товар 1</div>
+                    <div class="card-body">
+                        <h2 class="card-title">$ 100</h2>
+                        <p class="card-text text-muted small">
+                            10 users included, 2 GB of storage,<br>
+                            Email support, Help center access
+                        </p>
+                        <button type="button"
+                                class="btn btn-outline-primary w-100 btn-buy">
+                            Купить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-header">Товар 1</div>
+                    <div class="card-body">
+                        <h2 class="card-title">$ 100</h2>
+                        <p class="card-text text-muted small">
+                            10 users included, 2 GB of storage,<br>
+                            Email support, Help center access
+                        </p>
+                        <button type="button"
+                                class="btn btn-outline-primary w-100 btn-buy">
+                            Купить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-header">Товар 1</div>
+                    <div class="card-body">
+                        <h2 class="card-title">$ 100</h2>
+                        <p class="card-text text-muted small">
+                            10 users included, 2 GB of storage,<br>
+                            Email support, Help center access
+                        </p>
+                        <button type="button"
+                                class="btn btn-outline-primary w-100 btn-buy">
+                            Купить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Логика страницы -->
+    <script>
+        // Переключение активного пункта меню
+        document.querySelectorAll('#mainMenu .nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('#mainMenu .nav-link').forEach(l => {
+                    l.classList.remove('active', 'bg-primary', 'text-white');
+                    l.classList.add('text-white-50');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('text-white-50');
+            });
+        });
+
+        // Кнопка «Купить»
+        document.querySelectorAll('.btn-buy').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const card  = this.closest('.card');
+                const title = card.querySelector('.card-header').textContent;
+                const price = card.querySelector('.card-title').textContent;
+                alert(`Вы выбрали: ${title} — ${price}`);
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Главная</title>-->
+<!--    <link href="css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet"-->
+<!--          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">-->
+<!--    <style>-->
+<!--        html, body { height: 100%; margin: 0; }-->
+<!--        .sidebar { width: 260px; }-->
+<!--        .sidebar-bottom { margin-top: auto; }-->
+<!--        .logo-badge {-->
+<!--            width: 32px; height: 32px;-->
+<!--            border-radius: 6px;-->
+<!--            position: relative;-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--        }-->
+<!--        /* «хвостик» у буквы B, как в логотипе Bootstrap */-->
+<!--        .logo-badge::after {-->
+<!--            content: "";-->
+<!--            position: absolute;-->
+<!--            left: 4px; bottom: -3px;-->
+<!--            width: 6px; height: 6px;-->
+<!--            background: inherit;-->
+<!--            border-radius: 0 0 0 6px;-->
+<!--            transform: skewX(-15deg);-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body class="d-flex">-->
+
+<!--    &lt;!&ndash; ЛЕВЫЙ САЙДБАР &ndash;&gt;-->
+<!--    <aside class="sidebar bg-dark text-white d-flex flex-column p-3 min-vh-100">-->
+
+<!--        &lt;!&ndash; Логотип &ndash;&gt;-->
+<!--        <h5 class="mb-4 d-flex align-items-center">-->
+<!--            <span class="logo-badge bg-light text-dark fw-bold me-2">B</span>-->
+<!--            Меню-->
+<!--        </h5>-->
+
+<!--        &lt;!&ndash; Навигация &ndash;&gt;-->
+<!--        -->
+
+<!--        <ul class="nav nav-pills flex-column mb-3" id="mainMenu">-->
+<!--            <li class="nav-item mb-1">-->
+<!--                <a href="#" class="nav-link active bg-primary text-white">-->
+<!--                    <i class="bi bi-house me-2"></i>Главная-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item mb-1">-->
+<!--                <a href="#" class="nav-link text-white-50">-->
+<!--                    <i class="bi bi-folder me-2"></i>Категории-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item mb-1">-->
+<!--                <a href="#" class="nav-link text-white-50">-->
+<!--                    <i class="bi bi-grid-3x3-gap me-2"></i>Заказы-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item mb-1">-->
+<!--                <a href="#" class="nav-link text-white-50">-->
+<!--                    <i class="bi bi-envelope me-2"></i>Контакты-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+
+<!--        &lt;!&ndash; Низ сайдбара &ndash;&gt;-->
+<!--        <div class="sidebar-bottom border-top border-secondary pt-3">-->
+<!--            <a href="#" class="d-block text-white-50 text-decoration-none mb-2 px-2">Профиль</a>-->
+<!--            <a href="#" class="d-block text-white-50 text-decoration-none mb-3 px-2">Выход</a>-->
+
+<!--            <div class="dropdown">-->
+<!--                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"-->
+<!--                   id="userDropdown" role="button"-->
+<!--                   data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                    <span class="badge bg-secondary rounded-circle me-2"-->
+<!--                          style="width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;">-->
+<!--                        👤-->
+<!--                    </span>-->
+<!--                    Пользователь-->
+<!--                </a>-->
+<!--                <ul class="dropdown-menu dropdown-menu-dark shadow" aria-labelledby="userDropdown">-->
+<!--                    <li><a class="dropdown-item" href="#">Профиль</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Настройки</a></li>-->
+<!--                    <li><hr class="dropdown-divider"></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Выход</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </aside>-->
+
+<!--    &lt;!&ndash; ОСНОВНОЙ КОНТЕНТ &ndash;&gt;-->
+<!--    <main class="flex-grow-1 p-4">-->
+<!--        <h1 class="text-center mt-4">Главная</h1>-->
+<!--        <p class="text-center text-muted mb-5">-->
+<!--            Вы находитесь на сайте, предназначенном для продажи товаров.-->
+<!--        </p>-->
+
+<!--        <div class="row g-4 justify-content-center">-->
+<!--            <div class="col-12 col-md-4">-->
+<!--                <div class="card text-center h-100">-->
+<!--                    <div class="card-header">Товар 1</div>-->
+<!--                    <div class="card-body">-->
+<!--                        <h2 class="card-title">$ 100</h2>-->
+<!--                        <p class="card-text text-muted small">-->
+<!--                            10 users included, 2 GB of storage,<br>-->
+<!--                            Email support, Help center access-->
+<!--                        </p>-->
+<!--                        <button type="button"-->
+<!--                                class="btn btn-outline-primary w-100 btn-buy">-->
+<!--                            Купить-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-12 col-md-4">-->
+<!--                <div class="card text-center h-100">-->
+<!--                    <div class="card-header">Товар 1</div>-->
+<!--                    <div class="card-body">-->
+<!--                        <h2 class="card-title">$ 100</h2>-->
+<!--                        <p class="card-text text-muted small">-->
+<!--                            10 users included, 2 GB of storage,<br>-->
+<!--                            Email support, Help center access-->
+<!--                        </p>-->
+<!--                        <button type="button"-->
+<!--                                class="btn btn-outline-primary w-100 btn-buy">-->
+<!--                            Купить-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-12 col-md-4">-->
+<!--                <div class="card text-center h-100">-->
+<!--                    <div class="card-header">Товар 1</div>-->
+<!--                    <div class="card-body">-->
+<!--                        <h2 class="card-title">$ 100</h2>-->
+<!--                        <p class="card-text text-muted small">-->
+<!--                            10 users included, 2 GB of storage,<br>-->
+<!--                            Email support, Help center access-->
+<!--                        </p>-->
+<!--                        <button type="button"-->
+<!--                                class="btn btn-outline-primary w-100 btn-buy">-->
+<!--                            Купить-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
