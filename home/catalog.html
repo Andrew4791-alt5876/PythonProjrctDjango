@@ -1,10 +1,262 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Каталог</title>
-</head>
-<body>
 
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        html, body { height: 100%; margin: 0; }
+
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-bottom { margin-top: auto; }
+
+        /* Логотип «B» */
+        .logo-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-badge::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: -3px;
+            width: 6px;
+            height: 6px;
+            background: inherit;
+            border-radius: 0 0 0 6px;
+            transform: skewX(-15deg);
+        }
+
+        /* Стили для карточек каталога */
+        .card-thumbnail {
+            height: 200px;
+            background-color: #6c757d; /* Темно-серый цвет заглушки */
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .catalog-grid {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        /* Стили для маленьких кнопок в подвале */
+        .btn-sm-custom {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            color: #212529;
+            border-color: #ced4da;
+        }
+        .btn-sm-custom:hover {
+            background-color: #f8f9fa;
+            border-color: #ced4da;
+        }
+
+        .timestamp {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body class="d-flex">
+
+    <!-- ЛЕВЫЙ САЙДБАР -->
+    <aside class="sidebar bg-dark text-white d-flex flex-column p-3 min-vh-100">
+        <!-- Логотип -->
+        <h5 class="mb-4 d-flex align-items-center">
+            <span class="logo-badge bg-light text-dark fw-bold me-2">B</span>
+            Меню
+        </h5>
+
+        <!-- Навигация -->
+        <ul class="nav nav-pills flex-column mb-3" id="mainMenu">
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link active bg-primary text-white">
+                    <i class="bi bi-house me-2"></i>Главная
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-folder me-2"></i>Категории
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>Заказы
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white-50">
+                    <i class="bi bi-envelope me-2"></i>Контакты
+                </a>
+            </li>
+        </ul>
+
+        <!-- Низ сайдбара -->
+        <div class="sidebar-bottom border-top border-secondary pt-3">
+            <a href="#" class="d-block text-white-50 text-decoration-none mb-2 px-2">Профиль</a>
+            <a href="#" class="d-block text-white-50 text-decoration-none mb-3 px-2">Выход</a>
+
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                   id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="badge bg-secondary rounded-circle me-2"
+                          style="width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+                    Пользователь
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark shadow" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Профиль</a></li>
+                    <li><a class="dropdown-item" href="#">Настройки</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="flex-grow-1 bg-white p-4 overflow-auto">
+        <div class="container mt-5">
+
+            <!-- Заголовок страницы -->
+            <h1 class="text-center mb-5" style="font-weight: 400; font-size: 2.5rem; color: #212529;">Каталог</h1>
+
+            <!-- Сетка карточек -->
+            <div class="row g-4 justify-content-center catalog-grid">
+
+                <!-- Карточка 1 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border">
+                        <div class="card-thumbnail">Thumbnail</div>
+                        <div class="card-body">
+                            <p class="card-text mb-0">
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                            <div>
+                                <button class="btn btn-sm btn-sm-custom me-1 btn-action" data-action="View">View</button>
+                                <button class="btn btn-sm btn-sm-custom btn-action" data-action="Edit">Edit</button>
+                            </div>
+                            <small class="timestamp">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border">
+                        <div class="card-thumbnail">Thumbnail</div>
+                        <div class="card-body">
+                            <p class="card-text mb-0">
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                            <div>
+                                <button class="btn btn-sm btn-sm-custom me-1 btn-action" data-action="View">View</button>
+                                <button class="btn btn-sm btn-sm-custom btn-action" data-action="Edit">Edit</button>
+                            </div>
+                            <small class="timestamp">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border">
+                        <div class="card-thumbnail">Thumbnail</div>
+                        <div class="card-body">
+                            <p class="card-text mb-0">
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                            <div>
+                                <button class="btn btn-sm btn-sm-custom me-1 btn-action" data-action="View">View</button>
+                                <button class="btn btn-sm btn-sm-custom btn-action" data-action="Edit">Edit</button>
+                            </div>
+                            <small class="timestamp">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border">
+                        <div class="card-thumbnail">Thumbnail</div>
+                        <div class="card-body">
+                            <p class="card-text mb-0">
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                            <div>
+                                <button class="btn btn-sm btn-sm-custom me-1 btn-action" data-action="View">View</button>
+                                <button class="btn btn-sm btn-sm-custom btn-action" data-action="Edit">Edit</button>
+                            </div>
+                            <small class="timestamp">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Логика страницы -->
+    <script>
+        // Переключение активного пункта меню
+        document.querySelectorAll('#mainMenu .nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('#mainMenu .nav-link').forEach(l => {
+                    l.classList.remove('active', 'bg-primary', 'text-white');
+                    l.classList.add('text-white-50');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('text-white-50');
+            });
+        });
+
+        // Обработка кнопок View и Edit
+        document.querySelectorAll('.btn-action').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const action = this.getAttribute('data-action');
+                const card = this.closest('.card');
+                const text = card.querySelector('.card-text').textContent.trim();
+                alert(`Действие: ${action}\nТекст: ${text.substring(0, 30)}...`);
+            });
+        });
+    </script>
 </body>
 </html>
